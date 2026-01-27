@@ -28,7 +28,13 @@ mongoose
 
 
 app.get("/", (req, res) => {
+  redisClient.set("greeting", "Hello Tresmerge from Redis!");
   res.send("<h1>Hello Tresmerge!</h1>");
+});
+
+app.get("/greet", async (req, res) => {
+  const greeting = await redisClient.get("greeting");
+  res.send(`<h1>${greeting}</h1>`);
 });
 
 

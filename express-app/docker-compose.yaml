@@ -1,5 +1,5 @@
 services:
-  node-app:
+  express-app:
      container_name:  node-app-container
      build: .
      ports:
@@ -38,6 +38,19 @@ services:
     ports:
       - "6379:6379"
   
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-container
+    depends_on:
+      - express-app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+
+    
+   
 volumes:
   mongo-db:
    

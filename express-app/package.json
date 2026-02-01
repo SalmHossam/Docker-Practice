@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^5.2.1",
     "mongoose": "^9.1.5",
+    "pg": "^8.18.0",
     "redis": "^5.10.0"
   }
 }
